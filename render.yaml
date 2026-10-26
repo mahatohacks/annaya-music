@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: annaya-music-api
+    runtime: docker
+    rootDir: server
+    region: singapore
+    plan: 0.5c-512mb
+    healthCheckPath: /health
+    disk:
+      name: annaya-music-data
+      mountPath: C:\Users\Admin\Documents\Codex\2026-10-22\cr\outputs\AnnayaMusicApp-source
+      sizeGB: 25
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: TOKEN_SECRET
+        generateValue: true
+      - key: DATA_DIR
+        value: /data
+
+
